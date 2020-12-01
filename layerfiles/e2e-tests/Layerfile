@@ -1,3 +1,4 @@
 FROM /layerfiles/base
 
-RUN docker-compose exec cypress bash /app/run_tests.sh
+SECRET ENV REFLECT_API_KEY
+RUN bash reflect-test.sh
