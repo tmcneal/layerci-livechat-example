@@ -40,3 +40,4 @@ while [ "$STILL_RUNNING_TESTS" = "true" ]; do
 done
 
 echo "All tests have completed"
+
