@@ -32,6 +32,9 @@ while [ "$STILL_RUNNING_TESTS" = "true" ]; do
     if [ "$STILL_RUNNING_TESTS" = "true" ]; then
       echo "it matched"
     fi
+    if [ STILL_RUNNING_TESTS ]; then
+      echo "boolean match"
+    fi
     if ! [[ -z "$TESTS_FAILED" ]]; then
        printf "\e[1;31mSome tests has failed.\nReflect Execution ID: $EXECUTION_ID\nFailed tests: $TESTS_FAILED\n\n" >&2
        exit 1
