@@ -18,7 +18,7 @@ EXECUTION_ID=$(curl --location --silent --show-error --request POST 'https://api
 echo "Running the tests... Execution id: $EXECUTION_ID"
 
 STILL_RUNNING_TESTS=true
-while [ "$STILL_RUNNING_TESTS" = "true" ]; do
+while [ STILL_RUNNING_TESTS ]; do
     EXECUTION_STATUS=$( \
          curl --location --silent --show-error --request GET "https://api.reflect.run/v1/executions/$EXECUTION_ID" \
               --header "X-API-KEY: $REFLECT_API_KEY" \
