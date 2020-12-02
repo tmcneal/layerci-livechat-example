@@ -4,7 +4,7 @@ REQUEST_BODY="
   \"parallelism\": 1,
   \"overrides\": {
     \"hostnames\": [{
-      \"original\": \"qa.example.com\",
+      \"original\": \"bceb58f5-8788-4205-829f-4313a89fac6b.cidemo.co\",
       \"replacement\": \"$EXPOSE_WEBSITE_URL\"
     }]
   }
@@ -34,3 +34,5 @@ while [ "$STILL_RUNNING_TESTS" = "true" ]; do
     fi
     sleep 1
 done
+
+echo "All tests have completed"
