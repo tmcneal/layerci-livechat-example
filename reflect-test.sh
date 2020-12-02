@@ -27,7 +27,8 @@ while [ "$STILL_RUNNING_TESTS" = "true" ]; do
          )
     
     TESTS_FAILED=$(echo $EXECUTION_STATUS | jq -c '.tests[] | select(.status | contains("failed"))')
-    STILL_RUNNING_TESTS=$(echo $EXECUTION_STATUS | jq -c '.tests[] | select(.status | contains("running") or contains("queued")) | length > 0')    if ! [[ -z "$TESTS_FAILED" ]]; then
+    STILL_RUNNING_TESTS=$(echo $EXECUTION_STATUS | jq -c '.tests[] | select(.status | contains("running") or contains("queued")) | length > 0')
+    if ! [[ -z "$TESTS_FAILED" ]]; then
        printf "\e[1;31mSome tests has failed.\nReflect Execution ID: $EXECUTION_ID\nFailed tests: $TESTS_FAILED\n\n" >&2
        exit 1
     fi
