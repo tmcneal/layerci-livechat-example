@@ -2,5 +2,8 @@ FROM /layerfiles/base
 
 RUN apt-get install jq
 
+EXPOSE WEBSITE localhost:8000
+
 SECRET ENV REFLECT_API_KEY
+
 RUN bash reflect-test.sh
