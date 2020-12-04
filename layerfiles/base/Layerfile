@@ -16,3 +16,11 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-c
 COPY / /root
 
 RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans && sleep 5
+
+RUN apt-get install jq
+
+EXPOSE WEBSITE localhost:8000
+
+SECRET ENV REFLECT_API_KEY
+
+RUN bash reflect-test.sh
