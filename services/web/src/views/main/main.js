@@ -23,9 +23,12 @@ class NewChannelLightbox extends React.Component {
                 </div>
                 <form onSubmit={e => {
                     e.preventDefault();
-                    this.props.onChannelCreate({name: this.state.channelName, description: this.state.channelDescription});
-                    this.setState({channelName: "", channelDescription: ""});
-                    this.props.onClose();
+
+                    if (window.confirm("Are you sure you want to create a new channel?")) {
+                        this.props.onChannelCreate({name: this.state.channelName, description: this.state.channelDescription});
+                        this.setState({channelName: "", channelDescription: ""});
+                        this.props.onClose();
+                    }
                 }}>
                     <div className="form-group">
                         <label htmlFor="new-channel-name">Name</label>
