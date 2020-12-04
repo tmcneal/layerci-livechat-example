@@ -16,6 +16,7 @@ EXECUTION_ID=$(curl --location --silent --show-error --request POST 'https://api
     )
 
 echo "Running the tests... Execution id: $EXECUTION_ID"
+echo "Test status is available at https://app.reflect.run/tests/layerci"
 
 STILL_RUNNING_TESTS=true
 while [ "$STILL_RUNNING_TESTS" = "true" ]; do
